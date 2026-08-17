@@ -13,7 +13,7 @@ body{font-family:system-ui;margin:0;background:#f7f7f5;color:#17202a}header{back
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 const SUPABASE_URL="https://rcqvkmnkrwnbpqbnpoyo.supabase.co";
-const SUPABASE_PUBLISHABLE_KEY="YOUR_PUBLISHABLE_KEY";
+const SUPABASE_PUBLISHABLE_KEY="Ysb_publishable_3cCTzLbgKZi5i9D6IFVm0g_IzRt9V8M";
 const db=supabase.createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY);
 const today=()=>new Date().toISOString().slice(0,10),E=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function show(x){student.style.display=x==='student'?'block':'none';admin.style.display=x==='admin'?'block':'none';if(x==='student')load();else loadAdmin();}

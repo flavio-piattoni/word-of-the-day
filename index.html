@@ -180,6 +180,14 @@ color:#b91c1c
 color:#166534
 }
 
+.link-button{
+background:none;
+border:0;
+padding:8px 0;
+color:#2563eb;
+font-weight:600
+}
+
 table{
 width:100%;
 border-collapse:collapse
@@ -241,16 +249,13 @@ id="date"
 class="sub">
 </div>
 
-<h1>
-WORD OF THE DAY
-</h1>
+<h1>WORD OF THE DAY</h1>
 
 <div
 id="lang"
 class="sub">
 Caricamento...
 </div>
-
 
 <div id="setup">
 
@@ -313,15 +318,13 @@ id="admin"
 style="display:none">
 
 
-<!-- LOGIN DOCENTE -->
+<!-- LOGIN -->
 
 <div
 id="adminLogin"
 class="card login-box">
 
-<h2>
-🔐 Area docente
-</h2>
+<h2>🔐 Area docente</h2>
 
 <p class="sub">
 Accedi con il tuo account docente.
@@ -330,9 +333,7 @@ Accedi con il tuo account docente.
 
 <div class="field">
 
-<label>
-Email
-</label>
+<label>Email</label>
 
 <input
 id="loginEmail"
@@ -346,9 +347,7 @@ placeholder="La tua email"
 
 <div class="field">
 
-<label>
-Password
-</label>
+<label>Password</label>
 
 <input
 id="loginPassword"
@@ -367,8 +366,128 @@ ACCEDI
 </button>
 
 
+<br>
+
+<button
+class="link-button"
+onclick="showForgotPassword()">
+Password dimenticata?
+</button>
+
+
 <div
 id="loginMsg"
+class="message">
+</div>
+
+</div>
+
+
+
+<!-- RECUPERO PASSWORD -->
+
+<div
+id="forgotBox"
+class="card login-box"
+style="display:none">
+
+<h2>🔑 Recupera password</h2>
+
+<p class="sub">
+Inserisci l'indirizzo email del tuo account docente.
+Ti invieremo un link per scegliere una nuova password.
+</p>
+
+
+<div class="field">
+
+<label>Email</label>
+
+<input
+id="resetEmail"
+type="email"
+placeholder="La tua email"
+>
+
+</div>
+
+
+<button
+class="primary"
+onclick="sendResetEmail()">
+INVIA EMAIL
+</button>
+
+
+<br>
+
+<button
+class="link-button"
+onclick="showLogin()">
+← Torna al login
+</button>
+
+
+<div
+id="resetMsg"
+class="message">
+</div>
+
+</div>
+
+
+
+<!-- NUOVA PASSWORD -->
+
+<div
+id="newPasswordBox"
+class="card login-box"
+style="display:none">
+
+<h2>🔐 Nuova password</h2>
+
+<p class="sub">
+Inserisci la nuova password per il tuo account docente.
+</p>
+
+
+<div class="field">
+
+<label>Nuova password</label>
+
+<input
+id="newPassword"
+type="password"
+autocomplete="new-password"
+placeholder="Nuova password"
+>
+
+</div>
+
+
+<div class="field">
+
+<label>Conferma password</label>
+
+<input
+id="newPasswordConfirm"
+type="password"
+autocomplete="new-password"
+placeholder="Ripeti la password"
+>
+
+</div>
+
+
+<button
+class="primary"
+onclick="updatePassword()">
+SALVA NUOVA PASSWORD
+</button>
+
+
+<div
+id="newPasswordMsg"
 class="message">
 </div>
 
@@ -395,9 +514,7 @@ flex-wrap:wrap
 
 <div>
 
-<h2>
-👨‍🏫 Area docente
-</h2>
+<h2>👨‍🏫 Area docente</h2>
 
 <p
 id="loggedUser"
@@ -419,15 +536,13 @@ ESCI
 <div class="grid">
 
 
-<!-- PUBBLICAZIONE PAROLA -->
+<!-- PUBBLICAZIONE -->
 
 <div>
 
 <div class="field">
 
-<label>
-Parola
-</label>
+<label>Parola</label>
 
 <input
 id="word"
@@ -435,28 +550,22 @@ maxlength="11"
 placeholder="BRAVE"
 >
 
+<p class="sub">
+Puoi scegliere una parola da 3 a 11 lettere.
+</p>
+
 </div>
 
 
 <div class="field">
 
-<label>
-Lingua
-</label>
+<label>Lingua</label>
 
 <select id="language">
 
-<option>
-English
-</option>
-
-<option>
-Italiano
-</option>
-
-<option>
-Español
-</option>
+<option>English</option>
+<option>Italiano</option>
+<option>Español</option>
 
 </select>
 
@@ -465,9 +574,7 @@ Español
 
 <div class="field">
 
-<label>
-Definizione
-</label>
+<label>Definizione</label>
 
 <textarea
 id="definition">
@@ -478,9 +585,7 @@ id="definition">
 
 <div class="field">
 
-<label>
-Traduzione
-</label>
+<label>Traduzione</label>
 
 <input
 id="translation">
@@ -489,9 +594,7 @@ id="translation">
 
 <div class="field">
 
-<label>
-Frase
-</label>
+<label>Frase</label>
 
 <textarea
 id="example">
@@ -520,34 +623,21 @@ class="message">
 
 <div>
 
-<h3>
-Risultati di oggi
-</h3>
+<h3>Risultati di oggi</h3>
 
 <table>
 
 <thead>
 
 <tr>
-
-<th>
-Nome
-</th>
-
-<th>
-Tentativi
-</th>
-
-<th>
-Esito
-</th>
-
+<th>Nome</th>
+<th>Tentativi</th>
+<th>Esito</th>
 </tr>
 
 </thead>
 
-<tbody
-id="results">
+<tbody id="results">
 </tbody>
 
 </table>
@@ -560,34 +650,21 @@ id="results">
 <hr>
 
 
-<h3>
-Storico
-</h3>
+<h3>Storico</h3>
 
 <table>
 
 <thead>
 
 <tr>
-
-<th>
-Data
-</th>
-
-<th>
-Lingua
-</th>
-
-<th>
-Parola
-</th>
-
+<th>Data</th>
+<th>Lingua</th>
+<th>Parola</th>
 </tr>
 
 </thead>
 
-<tbody
-id="history">
+<tbody id="history">
 </tbody>
 
 </table>
@@ -655,7 +732,7 @@ return document.getElementById(id);
 
 
 /* =====================================================
-   CAMBIO TRA GIOCO E AREA DOCENTE
+   CAMBIO PAGINE
 ===================================================== */
 
 async function show(x){
@@ -685,7 +762,7 @@ await loadAdminArea();
 
 
 /* =====================================================
-   RECUPERA PAROLA DEL GIORNO
+   PAROLA DEL GIORNO
 ===================================================== */
 
 async function current(){
@@ -717,7 +794,7 @@ return r.data;
 
 
 /* =====================================================
-   CARICA GIOCO STUDENTE
+   CARICA GIOCO
 ===================================================== */
 
 async function load(){
@@ -754,7 +831,7 @@ el('setup').innerHTML =
 
 
 /* =====================================================
-   LOGIN DOCENTE
+   LOGIN
 ===================================================== */
 
 async function login(){
@@ -807,9 +884,7 @@ msg.className =
 msg.textContent =
 'Email o password non corrette.';
 
-console.error(
-result.error
-);
+console.error(result.error);
 
 return;
 
@@ -829,7 +904,231 @@ await loadAdminArea();
 
 
 /* =====================================================
-   CONTROLLO SESSIONE DOCENTE
+   MOSTRA RECUPERO PASSWORD
+===================================================== */
+
+function showForgotPassword(){
+
+el('adminLogin').style.display =
+'none';
+
+el('forgotBox').style.display =
+'block';
+
+el('newPasswordBox').style.display =
+'none';
+
+el('adminPanel').style.display =
+'none';
+
+
+el('resetEmail').value =
+el('loginEmail').value;
+
+}
+
+
+/* =====================================================
+   TORNA AL LOGIN
+===================================================== */
+
+function showLogin(){
+
+el('adminLogin').style.display =
+'block';
+
+el('forgotBox').style.display =
+'none';
+
+el('newPasswordBox').style.display =
+'none';
+
+el('adminPanel').style.display =
+'none';
+
+}
+
+
+/* =====================================================
+   INVIA EMAIL RESET
+===================================================== */
+
+async function sendResetEmail(){
+
+const email =
+el('resetEmail').value.trim();
+
+const msg =
+el('resetMsg');
+
+
+msg.className =
+'message';
+
+
+if(!email){
+
+msg.className =
+'message error';
+
+msg.textContent =
+'Inserisci la tua email.';
+
+return;
+
+}
+
+
+msg.textContent =
+'Invio email in corso...';
+
+
+/*
+Questo è l'indirizzo al quale Supabase
+riporterà l'utente dopo aver cliccato
+il link nella mail.
+*/
+
+const redirectUrl =
+window.location.origin +
+window.location.pathname;
+
+
+const result =
+await db.auth.resetPasswordForEmail(
+email,
+{
+redirectTo:redirectUrl
+}
+);
+
+
+if(result.error){
+
+msg.className =
+'message error';
+
+msg.textContent =
+'Errore: ' +
+result.error.message;
+
+console.error(result.error);
+
+return;
+
+}
+
+
+msg.className =
+'message success';
+
+msg.textContent =
+'✓ Email inviata. Controlla la tua casella di posta.';
+
+}
+
+
+/* =====================================================
+   CAMBIO PASSWORD
+===================================================== */
+
+async function updatePassword(){
+
+const password =
+el('newPassword').value;
+
+const confirm =
+el('newPasswordConfirm').value;
+
+const msg =
+el('newPasswordMsg');
+
+
+msg.className =
+'message';
+
+
+if(password.length < 6){
+
+msg.className =
+'message error';
+
+msg.textContent =
+'La password deve contenere almeno 6 caratteri.';
+
+return;
+
+}
+
+
+if(password !== confirm){
+
+msg.className =
+'message error';
+
+msg.textContent =
+'Le due password non coincidono.';
+
+return;
+
+}
+
+
+msg.textContent =
+'Salvataggio in corso...';
+
+
+const result =
+await db.auth.updateUser({
+
+password:password
+
+});
+
+
+if(result.error){
+
+msg.className =
+'message error';
+
+msg.textContent =
+'Errore: ' +
+result.error.message;
+
+console.error(result.error);
+
+return;
+
+}
+
+
+msg.className =
+'message success';
+
+msg.textContent =
+'✓ Password modificata correttamente.';
+
+
+setTimeout(
+()=>{
+
+showLogin();
+
+el('loginMsg').className =
+'message success';
+
+el('loginMsg').textContent =
+'Password modificata. Ora puoi accedere.';
+
+},
+1200
+);
+
+}
+
+
+/* =====================================================
+   CONTROLLO SESSIONE
 ===================================================== */
 
 async function loadAdminArea(){
@@ -844,6 +1143,12 @@ result.data.session;
 if(session){
 
 el('adminLogin').style.display =
+'none';
+
+el('forgotBox').style.display =
+'none';
+
+el('newPasswordBox').style.display =
 'none';
 
 el('adminPanel').style.display =
@@ -863,6 +1168,12 @@ await loadAdmin();
 el('adminLogin').style.display =
 'block';
 
+el('forgotBox').style.display =
+'none';
+
+el('newPasswordBox').style.display =
+'none';
+
 el('adminPanel').style.display =
 'none';
 
@@ -872,7 +1183,7 @@ el('adminPanel').style.display =
 
 
 /* =====================================================
-   LOGOUT DOCENTE
+   LOGOUT
 ===================================================== */
 
 async function logout(){
@@ -883,9 +1194,14 @@ await db.auth.signOut();
 el('adminLogin').style.display =
 'block';
 
-el('adminPanel').style.display =
+el('forgotBox').style.display =
 'none';
 
+el('newPasswordBox').style.display =
+'none';
+
+el('adminPanel').style.display =
+'none';
 
 el('loginPassword').value =
 '';
@@ -926,7 +1242,7 @@ x.example || '';
 }
 
 
-/* RISULTATI DI OGGI */
+/* RISULTATI */
 
 const r =
 await db
@@ -991,11 +1307,6 @@ el('history').innerHTML =
 
 async function publish(){
 
-/*
-Controlliamo nuovamente che ci sia
-una sessione docente.
-*/
-
 const result =
 await db.auth.getSession();
 
@@ -1019,6 +1330,11 @@ el('word')
 .toUpperCase();
 
 
+/*
+LUNGHEZZA PAROLA:
+MINIMO 3 - MASSIMO 11
+*/
+
 if(
 w.length < 3 ||
 w.length > 11
@@ -1026,6 +1342,21 @@ w.length > 11
 
 el('pub').textContent =
 'La parola deve avere 3-11 lettere.';
+
+return;
+
+}
+
+
+/*
+Controlliamo che siano effettivamente
+lettere e non numeri/simboli.
+*/
+
+if(!/^[A-ZÀ-ÖØ-Ý]+$/i.test(w)){
+
+el('pub').textContent =
+'La parola deve contenere solo lettere.';
 
 return;
 
@@ -1554,17 +1885,44 @@ t[i].textContent
 
 
 /* =====================================================
-   CONTROLLO AUTOMATICO SESSIONE SUPABASE
+   GESTIONE SESSIONE SUPABASE
 ===================================================== */
 
 db.auth.onAuthStateChange(
 (event,session)=>{
 
-if(
-el('admin').style.display !== 'none'
-){
+/*
+Quando Supabase conferma il link
+di recupero password, mostra la
+schermata per scegliere la nuova password.
+*/
 
-loadAdminArea();
+if(event === 'PASSWORD_RECOVERY'){
+
+setTimeout(
+()=>{
+
+el('admin').style.display =
+'block';
+
+el('student').style.display =
+'none';
+
+el('adminLogin').style.display =
+'none';
+
+el('forgotBox').style.display =
+'none';
+
+el('adminPanel').style.display =
+'none';
+
+el('newPasswordBox').style.display =
+'block';
+
+},
+0
+);
 
 }
 

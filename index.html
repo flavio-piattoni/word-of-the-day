@@ -1,31 +1,1584 @@
 <!doctype html>
-<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
 <title>Word of the Day — Scuola</title>
+
 <style>
-body{font-family:system-ui;margin:0;background:#f7f7f5;color:#17202a}header{background:#111827;color:white;padding:16px 22px;display:flex;justify-content:space-between}button{cursor:pointer;border:0;border-radius:8px;padding:10px 14px;font-weight:700}.nav button{background:transparent;color:white;border:1px solid #555}.card{background:white;border:1px solid #ddd;border-radius:15px;padding:22px;max-width:850px;margin:25px auto}.student{text-align:center;max-width:620px}.sub{color:#6b7280}.board{display:grid;gap:6px;max-width:360px;margin:20px auto;grid-template-columns:repeat(var(--n),1fr)}.tile{aspect-ratio:1;border:2px solid #ddd;display:grid;place-items:center;font-size:25px;font-weight:800}.filled{border-color:#888}.green{background:#6aaa64!important;color:white}.yellow{background:#c9b458!important;color:white}.gray{background:#787c7e!important;color:white}.keyboard{display:flex;flex-direction:column;gap:6px;max-width:500px;margin:auto}.keyrow{display:flex;justify-content:center;gap:4px}.key{background:#d3d6da;min-width:30px;height:44px}.wide{min-width:60px}.field{margin:12px 0}.field label{display:block;font-weight:700;margin-bottom:5px}.field input,.field textarea,.field select{width:100%;padding:10px;border:1px solid #ddd;border-radius:8px;font:inherit;box-sizing:border-box}.field textarea{min-height:70px}.primary{background:#2563eb;color:white}.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.message{min-height:25px;font-weight:700}.hint{background:#eef3ff;padding:12px;border-radius:8px;margin-top:15px}table{width:100%;border-collapse:collapse}td,th{text-align:left;padding:9px;border-bottom:1px solid #ddd}@media(max-width:700px){.grid{grid-template-columns:1fr}}
-</style></head>
+body{
+font-family:system-ui;
+margin:0;
+background:#f7f7f5;
+color:#17202a
+}
+
+header{
+background:#111827;
+color:white;
+padding:16px 22px;
+display:flex;
+justify-content:space-between
+}
+
+button{
+cursor:pointer;
+border:0;
+border-radius:8px;
+padding:10px 14px;
+font-weight:700
+}
+
+.nav button{
+background:transparent;
+color:white;
+border:1px solid #555
+}
+
+.card{
+background:white;
+border:1px solid #ddd;
+border-radius:15px;
+padding:22px;
+max-width:850px;
+margin:25px auto
+}
+
+.student{
+text-align:center;
+max-width:620px
+}
+
+.sub{
+color:#6b7280
+}
+
+.board{
+display:grid;
+gap:6px;
+max-width:360px;
+margin:20px auto;
+grid-template-columns:repeat(var(--n),1fr)
+}
+
+.tile{
+aspect-ratio:1;
+border:2px solid #ddd;
+display:grid;
+place-items:center;
+font-size:25px;
+font-weight:800
+}
+
+.filled{
+border-color:#888
+}
+
+.green{
+background:#6aaa64!important;
+color:white
+}
+
+.yellow{
+background:#c9b458!important;
+color:white
+}
+
+.gray{
+background:#787c7e!important;
+color:white
+}
+
+.keyboard{
+display:flex;
+flex-direction:column;
+gap:6px;
+max-width:500px;
+margin:auto
+}
+
+.keyrow{
+display:flex;
+justify-content:center;
+gap:4px
+}
+
+.key{
+background:#d3d6da;
+min-width:30px;
+height:44px
+}
+
+.wide{
+min-width:60px
+}
+
+.field{
+margin:12px 0
+}
+
+.field label{
+display:block;
+font-weight:700;
+margin-bottom:5px
+}
+
+.field input,
+.field textarea,
+.field select{
+width:100%;
+padding:10px;
+border:1px solid #ddd;
+border-radius:8px;
+font:inherit;
+box-sizing:border-box
+}
+
+.field textarea{
+min-height:70px
+}
+
+.primary{
+background:#2563eb;
+color:white
+}
+
+.secondary{
+background:#e5e7eb;
+color:#111827
+}
+
+.grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:18px
+}
+
+.message{
+min-height:25px;
+font-weight:700
+}
+
+.hint{
+background:#eef3ff;
+padding:12px;
+border-radius:8px;
+margin-top:15px
+}
+
+.login-box{
+max-width:420px;
+margin:25px auto
+}
+
+.error{
+color:#b91c1c
+}
+
+.success{
+color:#166534
+}
+
+table{
+width:100%;
+border-collapse:collapse
+}
+
+td,th{
+text-align:left;
+padding:9px;
+border-bottom:1px solid #ddd
+}
+
+@media(max-width:700px){
+.grid{
+grid-template-columns:1fr
+}
+}
+</style>
+
+</head>
+
 <body>
-<header><b>📚 WORD OF THE DAY</b><span><button class="nav" onclick="show('student')">Gioco</button> <button class="nav" onclick="show('admin')">Docente</button></span></header>
+
+<header>
+
+<b>📚 WORD OF THE DAY</b>
+
+<span>
+
+<button
+class="nav"
+onclick="show('student')">
+Gioco
+</button>
+
+<button
+class="nav"
+onclick="show('admin')">
+Docente
+</button>
+
+</span>
+
+</header>
+
+
 <main>
-<section id="student"><div class="card student"><div id="date" class="sub"></div><h1>WORD OF THE DAY</h1><div id="lang" class="sub">Caricamento...</div><div id="setup"><p>Inserisci il tuo nome/nickname.</p><input id="name" placeholder="Es. Marco" maxlength="24"> <button class="primary" onclick="start()">Inizia</button></div><div id="game" style="display:none"><div id="board" class="board"></div><div id="msg" class="message"></div><div id="keys" class="keyboard"></div><div id="result"></div></div></div></section>
-<section id="admin" style="display:none"><div class="card"><h2>👨‍🏫 Area docente</h2><p class="sub">Questa versione usa il database Supabase.</p><div class="grid"><div><div class="field"><label>Parola</label><input id="word" maxlength="11" placeholder="BRAVE"></div><div class="field"><label>Lingua</label><select id="language"><option>English</option><option>Italiano</option><option>Español</option></select></div><div class="field"><label>Definizione</label><textarea id="definition"></textarea></div><div class="field"><label>Traduzione</label><input id="translation"></div><div class="field"><label>Frase</label><textarea id="example"></textarea></div><button class="primary" onclick="publish()">PUBBLICA</button><div id="pub" class="message"></div></div><div><h3>Risultati di oggi</h3><table><thead><tr><th>Nome</th><th>Tentativi</th><th>Esito</th></tr></thead><tbody id="results"></tbody></table></div></div><hr><h3>Storico</h3><table><thead><tr><th>Data</th><th>Lingua</th><th>Parola</th></tr></thead><tbody id="history"></tbody></table></div></section>
+
+
+<!-- =====================================================
+     GIOCO STUDENTE
+====================================================== -->
+
+<section id="student">
+
+<div class="card student">
+
+<div
+id="date"
+class="sub">
+</div>
+
+<h1>
+WORD OF THE DAY
+</h1>
+
+<div
+id="lang"
+class="sub">
+Caricamento...
+</div>
+
+
+<div id="setup">
+
+<p>
+Inserisci il tuo nome/nickname.
+</p>
+
+<input
+id="name"
+placeholder="Es. Marco"
+maxlength="24"
+>
+
+<button
+class="primary"
+onclick="start()">
+Inizia
+</button>
+
+</div>
+
+
+<div
+id="game"
+style="display:none">
+
+<div
+id="board"
+class="board">
+</div>
+
+<div
+id="msg"
+class="message">
+</div>
+
+<div
+id="keys"
+class="keyboard">
+</div>
+
+<div
+id="result">
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     AREA DOCENTE
+====================================================== -->
+
+<section
+id="admin"
+style="display:none">
+
+
+<!-- LOGIN DOCENTE -->
+
+<div
+id="adminLogin"
+class="card login-box">
+
+<h2>
+🔐 Area docente
+</h2>
+
+<p class="sub">
+Accedi con il tuo account docente.
+</p>
+
+
+<div class="field">
+
+<label>
+Email
+</label>
+
+<input
+id="loginEmail"
+type="email"
+autocomplete="username"
+placeholder="La tua email"
+>
+
+</div>
+
+
+<div class="field">
+
+<label>
+Password
+</label>
+
+<input
+id="loginPassword"
+type="password"
+autocomplete="current-password"
+placeholder="Password"
+>
+
+</div>
+
+
+<button
+class="primary"
+onclick="login()">
+ACCEDI
+</button>
+
+
+<div
+id="loginMsg"
+class="message">
+</div>
+
+</div>
+
+
+
+<!-- PANNELLO DOCENTE -->
+
+<div
+id="adminPanel"
+class="card"
+style="display:none">
+
+
+<div
+style="
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:10px;
+flex-wrap:wrap
+">
+
+<div>
+
+<h2>
+👨‍🏫 Area docente
+</h2>
+
+<p
+id="loggedUser"
+class="sub">
+</p>
+
+</div>
+
+
+<button
+class="secondary"
+onclick="logout()">
+ESCI
+</button>
+
+</div>
+
+
+<div class="grid">
+
+
+<!-- PUBBLICAZIONE PAROLA -->
+
+<div>
+
+<div class="field">
+
+<label>
+Parola
+</label>
+
+<input
+id="word"
+maxlength="11"
+placeholder="BRAVE"
+>
+
+</div>
+
+
+<div class="field">
+
+<label>
+Lingua
+</label>
+
+<select id="language">
+
+<option>
+English
+</option>
+
+<option>
+Italiano
+</option>
+
+<option>
+Español
+</option>
+
+</select>
+
+</div>
+
+
+<div class="field">
+
+<label>
+Definizione
+</label>
+
+<textarea
+id="definition">
+</textarea>
+
+</div>
+
+
+<div class="field">
+
+<label>
+Traduzione
+</label>
+
+<input
+id="translation">
+</div>
+
+
+<div class="field">
+
+<label>
+Frase
+</label>
+
+<textarea
+id="example">
+</textarea>
+
+</div>
+
+
+<button
+class="primary"
+onclick="publish()">
+PUBBLICA
+</button>
+
+
+<div
+id="pub"
+class="message">
+</div>
+
+</div>
+
+
+
+<!-- RISULTATI -->
+
+<div>
+
+<h3>
+Risultati di oggi
+</h3>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>
+Nome
+</th>
+
+<th>
+Tentativi
+</th>
+
+<th>
+Esito
+</th>
+
+</tr>
+
+</thead>
+
+<tbody
+id="results">
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+
+<hr>
+
+
+<h3>
+Storico
+</h3>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>
+Data
+</th>
+
+<th>
+Lingua
+</th>
+
+<th>
+Parola
+</th>
+
+</tr>
+
+</thead>
+
+<tbody
+id="history">
+</tbody>
+
+</table>
+
+
+</div>
+
+</section>
+
 </main>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+
+<!-- =====================================================
+     SUPABASE
+====================================================== -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2">
+</script>
+
+
 <script>
-const SUPABASE_URL="https://rcqvkmnkrwnbpqbnpoyo.supabase.co";
-const SUPABASE_PUBLISHABLE_KEY="sb_publishable_3cCTzLbgKZi5i9D6IFVm0g_IzRt9V8M";
-const db=supabase.createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY);
-const today=()=>new Date().toISOString().slice(0,10),E=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-function show(x){student.style.display=x==='student'?'block':'none';admin.style.display=x==='admin'?'block':'none';if(x==='student')load();else loadAdmin();}
-async function current(){let r=await db.from('word_of_the_day').select('*').eq('game_date',today()).maybeSingle();if(r.error){lang.textContent='Errore database: '+r.error.message;console.error(r.error);return null}return r.data}
-async function load(){date.textContent=new Date().toLocaleDateString('it-IT',{weekday:'long',day:'numeric',month:'long'});let x=await current();lang.textContent=x?x.language:'Nessuna parola pubblicata oggi';if(!x)setup.innerHTML='<p>Il docente non ha ancora pubblicato la parola di oggi.</p>'}
-async function loadAdmin(){let x=await current();if(x){word.value=x.word;language.value=x.language;definition.value=x.definition||'';translation.value=x.translation||'';example.value=x.example||''}let r=await db.from('results').select('*').eq('game_date',today()).order('created_at');results.innerHTML=(r.data||[]).map(x=>`<tr><td>${E(x.student_name)}</td><td>${x.attempts??'—'}</td><td>${x.won?'🟩':'❌'}</td></tr>`).join('');let h=await db.from('word_of_the_day').select('*').order('game_date',{ascending:false}).limit(100);history.innerHTML=(h.data||[]).map(x=>`<tr><td>${x.game_date}</td><td>${E(x.language)}</td><td>${E(x.word)}</td></tr>`).join('')}
-async function publish(){let w=word.value.trim().toUpperCase();if(w.length<3||w.length>11){pub.textContent='La parola deve avere 3-11 lettere.';return}let r=await db.from('word_of_the_day').upsert({game_date:today(),word:w,language:language.value,definition:definition.value,translation:translation.value,example:example.value},{onConflict:'game_date'});pub.textContent=r.error?'Errore: '+r.error.message:'✓ Parola pubblicata online.';load();loadAdmin()}
-let S={};
-async function start(){let x=await current(),n=document.getElementById('name').value.trim();if(!x){alert('Nessuna parola pubblicata.');return}if(!n){alert('Inserisci il nome.');return}S={w:x.word,n,row:0,g:'',gs:[],cs:[],letters:{},x};setup.style.display='none';game.style.display='block';board.style.setProperty('--n',S.w.length);board.innerHTML='';for(let i=0;i<6*S.w.length;i++)board.innerHTML+='<div class="tile"></div>';keys.innerHTML='';['QWERTYUIOP','ASDFGHJKL','ZXCVBNM'].forEach((r,j)=>{let z=document.createElement('div');z.className='keyrow';[...r].forEach(c=>{let b=document.createElement('button');b.className='key';b.textContent=c;b.onclick=()=>press(c);z.appendChild(b)});if(j==2)['⌫','ENTER'].forEach(c=>{let b=document.createElement('button');b.className='key wide';b.textContent=c;b.onclick=()=>press(c);z.appendChild(b)});keys.appendChild(z)});draw()}
-function press(k){if(S.done)return;if(k==='⌫')S.g=S.g.slice(0,-1);else if(k==='ENTER')guess();else if(/^[A-Z]$/.test(k)&&S.g.length<S.w.length)S.g+=k;draw()}
-function evalg(g,w){let a=Array(w.length).fill('gray'),u=[];for(let i=0;i<w.length;i++)if(g[i]===w[i]){a[i]='green';u[i]=1}for(let i=0;i<w.length;i++)if(a[i]!='green'){let j=w.split('').findIndex((c,k)=>c===g[i]&&!u[k]);if(j>=0){a[i]='yellow';u[j]=1}}return a}
-async function guess(){if(S.g.length!==S.w.length){msg.textContent='Completa la parola.';return}let g=S.g,c=evalg(g,S.w);S.gs.push(g);S.cs.push(c);S.row++;S.g='';let win=g===S.w;if(win||S.row===6){S.done=true;await db.from('results').insert({game_date:today(),student_name:S.n,attempts:win?S.row:null,won:win});result.innerHTML=`<h2>${win?'🎉 Correct!':'La parola era: '+E(S.w)}</h2><div class="hint">${E(S.x.definition||'')}${S.x.translation?'<br>🇮🇹 '+E(S.x.translation):''}${S.x.example?'<br><i>'+E(S.x.example)+'</i>':''}</div>`;msg.textContent=win?'Ottimo lavoro!':'Riprova domani!'}draw()}
-function draw(){let n=S.w.length,t=[...board.children];for(let i=0;i<6*n;i++){let r=Math.floor(i/n),c=i%n;t[i].textContent=r===S.row?(S.g[c]||''):S.gs[r]?.[c]||'';t[i].className='tile '+(r<S.row?S.cs[r][c]:'')+(t[i].textContent?' filled':'')}}
+
+/* =====================================================
+   CONFIGURAZIONE SUPABASE
+===================================================== */
+
+const SUPABASE_URL =
+"https://rcqvkmnkrwnbpqbnpoyo.supabase.co";
+
+const SUPABASE_PUBLISHABLE_KEY =
+"sb_publishable_3cCTzLbgKZi5i9D6IFVm0g_IzRt9V8M";
+
+const db =
+supabase.createClient(
+SUPABASE_URL,
+SUPABASE_PUBLISHABLE_KEY
+);
+
+
+/* =====================================================
+   FUNZIONI DI BASE
+===================================================== */
+
+const today = () =>
+new Date().toISOString().slice(0,10);
+
+
+const E = s =>
+String(s ?? '').replace(
+/[&<>"']/g,
+c => ({
+'&':'&amp;',
+'<':'&lt;',
+'>':'&gt;',
+'"':'&quot;',
+"'":'&#39;'
+}[c])
+);
+
+
+function el(id){
+return document.getElementById(id);
+}
+
+
+/* =====================================================
+   CAMBIO TRA GIOCO E AREA DOCENTE
+===================================================== */
+
+async function show(x){
+
+el('student').style.display =
+x === 'student'
+? 'block'
+: 'none';
+
+el('admin').style.display =
+x === 'admin'
+? 'block'
+: 'none';
+
+
+if(x === 'student'){
+
 load();
-</script></body></html>
+
+}else{
+
+await loadAdminArea();
+
+}
+
+}
+
+
+/* =====================================================
+   RECUPERA PAROLA DEL GIORNO
+===================================================== */
+
+async function current(){
+
+const r =
+await db
+.from('word_of_the_day')
+.select('*')
+.eq('game_date',today())
+.maybeSingle();
+
+
+if(r.error){
+
+el('lang').textContent =
+'Errore database: ' +
+r.error.message;
+
+console.error(r.error);
+
+return null;
+
+}
+
+
+return r.data;
+
+}
+
+
+/* =====================================================
+   CARICA GIOCO STUDENTE
+===================================================== */
+
+async function load(){
+
+el('date').textContent =
+new Date().toLocaleDateString(
+'it-IT',
+{
+weekday:'long',
+day:'numeric',
+month:'long'
+}
+);
+
+
+const x =
+await current();
+
+
+el('lang').textContent =
+x
+? x.language
+: 'Nessuna parola pubblicata oggi';
+
+
+if(!x){
+
+el('setup').innerHTML =
+'<p>Il docente non ha ancora pubblicato la parola di oggi.</p>';
+
+}
+
+}
+
+
+/* =====================================================
+   LOGIN DOCENTE
+===================================================== */
+
+async function login(){
+
+const email =
+el('loginEmail').value.trim();
+
+const password =
+el('loginPassword').value;
+
+const msg =
+el('loginMsg');
+
+
+msg.className =
+'message';
+
+msg.textContent =
+'Accesso in corso...';
+
+
+if(!email || !password){
+
+msg.className =
+'message error';
+
+msg.textContent =
+'Inserisci email e password.';
+
+return;
+
+}
+
+
+const result =
+await db.auth.signInWithPassword({
+
+email:email,
+
+password:password
+
+});
+
+
+if(result.error){
+
+msg.className =
+'message error';
+
+msg.textContent =
+'Email o password non corrette.';
+
+console.error(
+result.error
+);
+
+return;
+
+}
+
+
+msg.className =
+'message success';
+
+msg.textContent =
+'Accesso effettuato.';
+
+
+await loadAdminArea();
+
+}
+
+
+/* =====================================================
+   CONTROLLO SESSIONE DOCENTE
+===================================================== */
+
+async function loadAdminArea(){
+
+const result =
+await db.auth.getSession();
+
+const session =
+result.data.session;
+
+
+if(session){
+
+el('adminLogin').style.display =
+'none';
+
+el('adminPanel').style.display =
+'block';
+
+
+el('loggedUser').textContent =
+'Accesso effettuato come ' +
+session.user.email;
+
+
+await loadAdmin();
+
+
+}else{
+
+el('adminLogin').style.display =
+'block';
+
+el('adminPanel').style.display =
+'none';
+
+}
+
+}
+
+
+/* =====================================================
+   LOGOUT DOCENTE
+===================================================== */
+
+async function logout(){
+
+await db.auth.signOut();
+
+
+el('adminLogin').style.display =
+'block';
+
+el('adminPanel').style.display =
+'none';
+
+
+el('loginPassword').value =
+'';
+
+el('loginMsg').textContent =
+'';
+
+}
+
+
+/* =====================================================
+   CARICA AREA DOCENTE
+===================================================== */
+
+async function loadAdmin(){
+
+const x =
+await current();
+
+
+if(x){
+
+el('word').value =
+x.word;
+
+el('language').value =
+x.language;
+
+el('definition').value =
+x.definition || '';
+
+el('translation').value =
+x.translation || '';
+
+el('example').value =
+x.example || '';
+
+}
+
+
+/* RISULTATI DI OGGI */
+
+const r =
+await db
+.from('results')
+.select('*')
+.eq('game_date',today())
+.order('created_at');
+
+
+el('results').innerHTML =
+(r.data || [])
+.map(x =>
+
+`
+<tr>
+<td>${E(x.student_name)}</td>
+<td>${x.attempts ?? '—'}</td>
+<td>${x.won ? '🟩' : '❌'}</td>
+</tr>
+`
+
+)
+.join('');
+
+
+/* STORICO */
+
+const h =
+await db
+.from('word_of_the_day')
+.select('*')
+.order(
+'game_date',
+{
+ascending:false
+}
+)
+.limit(100);
+
+
+el('history').innerHTML =
+(h.data || [])
+.map(x =>
+
+`
+<tr>
+<td>${x.game_date}</td>
+<td>${E(x.language)}</td>
+<td>${E(x.word)}</td>
+</tr>
+`
+
+)
+.join('');
+
+}
+
+
+/* =====================================================
+   PUBBLICA PAROLA
+===================================================== */
+
+async function publish(){
+
+/*
+Controlliamo nuovamente che ci sia
+una sessione docente.
+*/
+
+const result =
+await db.auth.getSession();
+
+const session =
+result.data.session;
+
+
+if(!session){
+
+await loadAdminArea();
+
+return;
+
+}
+
+
+const w =
+el('word')
+.value
+.trim()
+.toUpperCase();
+
+
+if(
+w.length < 3 ||
+w.length > 11
+){
+
+el('pub').textContent =
+'La parola deve avere 3-11 lettere.';
+
+return;
+
+}
+
+
+const r =
+await db
+.from('word_of_the_day')
+.upsert(
+
+{
+
+game_date:today(),
+
+word:w,
+
+language:
+el('language').value,
+
+definition:
+el('definition').value,
+
+translation:
+el('translation').value,
+
+example:
+el('example').value
+
+},
+
+{
+onConflict:'game_date'
+}
+
+);
+
+
+if(r.error){
+
+el('pub').textContent =
+'Errore: ' +
+r.error.message;
+
+console.error(r.error);
+
+}else{
+
+el('pub').textContent =
+'✓ Parola pubblicata online.';
+
+}
+
+
+await load();
+
+await loadAdmin();
+
+}
+
+
+/* =====================================================
+   VARIABILI GIOCO
+===================================================== */
+
+let S = {};
+
+
+/* =====================================================
+   INIZIA GIOCO
+===================================================== */
+
+async function start(){
+
+const x =
+await current();
+
+
+const n =
+el('name')
+.value
+.trim();
+
+
+if(!x){
+
+alert(
+'Nessuna parola pubblicata.'
+);
+
+return;
+
+}
+
+
+if(!n){
+
+alert(
+'Inserisci il nome.'
+);
+
+return;
+
+}
+
+
+S = {
+
+w:x.word,
+
+n:n,
+
+row:0,
+
+g:'',
+
+gs:[],
+
+cs:[],
+
+letters:{},
+
+x:x
+
+};
+
+
+el('setup').style.display =
+'none';
+
+el('game').style.display =
+'block';
+
+
+el('board')
+.style
+.setProperty(
+'--n',
+S.w.length
+);
+
+
+el('board').innerHTML =
+'';
+
+
+for(
+let i=0;
+i<6*S.w.length;
+i++
+){
+
+el('board').innerHTML +=
+'<div class="tile"></div>';
+
+}
+
+
+/* TASTIERA */
+
+el('keys').innerHTML =
+'';
+
+
+[
+'QWERTYUIOP',
+'ASDFGHJKL',
+'ZXCVBNM'
+]
+.forEach(
+(r,j)=>{
+
+let z =
+document.createElement('div');
+
+z.className =
+'keyrow';
+
+
+[...r].forEach(
+c=>{
+
+let b =
+document.createElement('button');
+
+b.className =
+'key';
+
+b.textContent =
+c;
+
+b.onclick =
+()=>press(c);
+
+z.appendChild(b);
+
+});
+
+
+if(j == 2){
+
+[
+'⌫',
+'ENTER'
+]
+.forEach(
+c=>{
+
+let b =
+document.createElement('button');
+
+b.className =
+'key wide';
+
+b.textContent =
+c;
+
+b.onclick =
+()=>press(c);
+
+z.appendChild(b);
+
+});
+
+}
+
+
+el('keys')
+.appendChild(z);
+
+}
+);
+
+
+draw();
+
+}
+
+
+/* =====================================================
+   TASTIERA
+===================================================== */
+
+function press(k){
+
+if(S.done)
+return;
+
+
+if(k === '⌫'){
+
+S.g =
+S.g.slice(0,-1);
+
+}
+
+else if(k === 'ENTER'){
+
+guess();
+
+}
+
+else if(
+/^[A-Z]$/.test(k) &&
+S.g.length < S.w.length
+){
+
+S.g += k;
+
+}
+
+
+draw();
+
+}
+
+
+/* =====================================================
+   VALUTA TENTATIVO
+===================================================== */
+
+function evalg(g,w){
+
+let a =
+Array(w.length)
+.fill('gray');
+
+let u = [];
+
+
+for(
+let i=0;
+i<w.length;
+i++
+){
+
+if(g[i] === w[i]){
+
+a[i] =
+'green';
+
+u[i] =
+1;
+
+}
+
+}
+
+
+for(
+let i=0;
+i<w.length;
+i++
+){
+
+if(a[i] != 'green'){
+
+let j =
+w.split('')
+.findIndex(
+(c,k) =>
+c === g[i] &&
+!u[k]
+);
+
+
+if(j >= 0){
+
+a[i] =
+'yellow';
+
+u[j] =
+1;
+
+}
+
+}
+
+}
+
+
+return a;
+
+}
+
+
+/* =====================================================
+   TENTATIVO
+===================================================== */
+
+async function guess(){
+
+if(
+S.g.length !== S.w.length
+){
+
+el('msg').textContent =
+'Completa la parola.';
+
+return;
+
+}
+
+
+let g =
+S.g;
+
+let c =
+evalg(
+g,
+S.w
+);
+
+
+S.gs.push(g);
+
+S.cs.push(c);
+
+S.row++;
+
+S.g =
+'';
+
+
+let win =
+g === S.w;
+
+
+if(
+win ||
+S.row === 6
+){
+
+S.done =
+true;
+
+
+await db
+.from('results')
+.insert({
+
+game_date:
+today(),
+
+student_name:
+S.n,
+
+attempts:
+win
+? S.row
+: null,
+
+won:
+win
+
+});
+
+
+el('result').innerHTML =
+
+`
+<h2>
+${
+win
+? '🎉 Correct!'
+: 'La parola era: ' + E(S.w)
+}
+</h2>
+
+<div class="hint">
+
+${E(S.x.definition || '')}
+
+${
+S.x.translation
+? '<br>🇮🇹 ' +
+E(S.x.translation)
+: ''
+}
+
+${
+S.x.example
+? '<br><i>' +
+E(S.x.example) +
+'</i>'
+: ''
+}
+
+</div>
+`;
+
+
+el('msg').textContent =
+win
+? 'Ottimo lavoro!'
+: 'Riprova domani!';
+
+}
+
+
+draw();
+
+}
+
+
+/* =====================================================
+   DISEGNA TABELLA
+===================================================== */
+
+function draw(){
+
+if(!S.w)
+return;
+
+
+let n =
+S.w.length;
+
+let t =
+[
+...el('board').children
+];
+
+
+for(
+let i=0;
+i<6*n;
+i++
+){
+
+let r =
+Math.floor(i/n);
+
+let c =
+i%n;
+
+
+t[i].textContent =
+
+r === S.row
+? (S.g[c] || '')
+: S.gs[r]?.[c] || '';
+
+
+t[i].className =
+
+'tile ' +
+
+(
+r < S.row
+? S.cs[r][c]
+: ''
+)
+
++
+
+(
+t[i].textContent
+? ' filled'
+: ''
+);
+
+}
+
+}
+
+
+/* =====================================================
+   CONTROLLO AUTOMATICO SESSIONE SUPABASE
+===================================================== */
+
+db.auth.onAuthStateChange(
+(event,session)=>{
+
+if(
+el('admin').style.display !== 'none'
+){
+
+loadAdminArea();
+
+}
+
+}
+);
+
+
+/* =====================================================
+   AVVIO
+===================================================== */
+
+load();
+
+</script>
+
+</body>
+</html>

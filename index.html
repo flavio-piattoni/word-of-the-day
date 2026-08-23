@@ -3,7 +3,6 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-
 <title>Word of the Day — Scuola</title>
 
 <style>
@@ -13,7 +12,6 @@ body{
   background:#f7f7f5;
   color:#17202a
 }
-
 header{
   background:#111827;
   color:white;
@@ -22,7 +20,6 @@ header{
   justify-content:space-between;
   align-items:center
 }
-
 button{
   cursor:pointer;
   border:0;
@@ -30,13 +27,11 @@ button{
   padding:10px 14px;
   font-weight:700
 }
-
 .nav{
   background:transparent;
   color:white;
   border:1px solid #555
 }
-
 .card{
   background:white;
   border:1px solid #ddd;
@@ -45,16 +40,13 @@ button{
   max-width:850px;
   margin:25px auto
 }
-
 .student{
   text-align:center;
   max-width:620px
 }
-
 .sub{
   color:#6b7280
 }
-
 .board{
   display:grid;
   gap:6px;
@@ -62,7 +54,6 @@ button{
   margin:20px auto;
   grid-template-columns:repeat(var(--n),1fr)
 }
-
 .tile{
   aspect-ratio:1;
   border:2px solid #ddd;
@@ -71,26 +62,21 @@ button{
   font-size:25px;
   font-weight:800
 }
-
 .filled{
   border-color:#888
 }
-
 .green{
   background:#6aaa64!important;
   color:white
 }
-
 .yellow{
   background:#c9b458!important;
   color:white
 }
-
 .gray{
   background:#787c7e!important;
   color:white
 }
-
 .keyboard{
   display:flex;
   flex-direction:column;
@@ -98,33 +84,27 @@ button{
   max-width:500px;
   margin:auto
 }
-
 .keyrow{
   display:flex;
   justify-content:center;
   gap:4px
 }
-
 .key{
   background:#d3d6da;
   min-width:30px;
   height:44px
 }
-
 .wide{
   min-width:60px
 }
-
 .field{
   margin:12px 0
 }
-
 .field label{
   display:block;
   font-weight:700;
   margin-bottom:5px
 }
-
 .field input,
 .field textarea,
 .field select{
@@ -135,97 +115,78 @@ button{
   font:inherit;
   box-sizing:border-box
 }
-
 .field textarea{
   min-height:70px
 }
-
 .primary{
   background:#2563eb;
   color:white
 }
-
 .secondary{
   background:#6b7280;
   color:white
 }
-
 .danger{
   background:#dc2626;
   color:white
 }
-
 .grid{
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:18px
 }
-
 .message{
   min-height:25px;
   font-weight:700;
   margin-top:10px
 }
-
 .success{
   color:#15803d
 }
-
 .error{
   color:#dc2626
 }
-
 .hint{
   background:#eef3ff;
   padding:12px;
   border-radius:8px;
   margin-top:15px
 }
-
 .login-box{
   max-width:450px;
   margin:40px auto
 }
-
 .login-title{
   text-align:center
 }
-
 .user-info{
   background:#eef3ff;
   padding:12px;
   border-radius:8px;
   margin-bottom:18px
 }
-
 table{
   width:100%;
   border-collapse:collapse
 }
-
 td,th{
   text-align:left;
   padding:9px;
   border-bottom:1px solid #ddd
 }
-
 .hidden{
   display:none!important
 }
-
 @media(max-width:700px){
   .grid{
     grid-template-columns:1fr
   }
-
   header{
     padding:12px
   }
-
   header b{
     font-size:14px
   }
-
   .nav{
     padding:8px
   }
@@ -236,1348 +197,1364 @@ td,th{
 <body>
 
 <header>
-  <b>📚 WORD OF THE DAY</b>
-
-  <span>
-    <button class="nav" onclick="showStudent()">Gioco</button>
-    <button class="nav" onclick="showTeacher()">Docente</button>
-  </span>
+<b>📚 WORD OF THE DAY</b>
+<span>
+<button class="nav" onclick="showStudent()">Gioco</button>
+<button class="nav" onclick="showTeacher()">Docente</button>
+</span>
 </header>
 
 <main>
 
-<!-- =========================
-     GIOCO STUDENTE
-========================= -->
+<!-- ================= GIOCO ================= -->
 
 <section id="student">
 
-  <div class="card student">
+<div class="card student">
 
-    <div id="date" class="sub"></div>
+<div id="date" class="sub"></div>
 
-    <h1>WORD OF THE DAY</h1>
+<h1>WORD OF THE DAY</h1>
 
-    <div id="lang" class="sub">
-      Caricamento...
-    </div>
+<div id="lang" class="sub">
+Caricamento...
+</div>
 
-    <div id="setup">
+<div id="setup">
 
-      <p>Inserisci il tuo nome/nickname.</p>
+<p>Inserisci il tuo nome/nickname.</p>
 
-      <input
-        id="name"
-        placeholder="Es. Marco"
-        maxlength="24"
-      >
+<input
+id="name"
+placeholder="Es. Marco"
+maxlength="24"
+>
 
-      <button
-        class="primary"
-        onclick="startGame()"
-      >
-        Inizia
-      </button>
+<button
+class="primary"
+onclick="startGame()"
+>
+Inizia
+</button>
 
-    </div>
+</div>
 
-    <div id="game" class="hidden">
+<div id="game" class="hidden">
 
-      <div id="board" class="board"></div>
+<div id="board" class="board"></div>
 
-      <div id="msg" class="message"></div>
+<div id="msg" class="message"></div>
 
-      <div id="keys" class="keyboard"></div>
+<div id="keys" class="keyboard"></div>
 
-      <div id="result"></div>
+<div id="result"></div>
 
-    </div>
+</div>
 
-  </div>
+</div>
 
 </section>
 
 
-<!-- =========================
-     LOGIN DOCENTE
-========================= -->
+<!-- ================= LOGIN DOCENTE ================= -->
 
 <section id="teacherLogin" class="hidden">
 
-  <div class="card login-box">
+<div class="card login-box">
 
-    <h2 class="login-title">
-      👨‍🏫 Area docente
-    </h2>
+<h2 class="login-title">
+👨‍🏫 Area docente
+</h2>
 
-    <p class="sub">
-      Inserisci le credenziali del docente.
-    </p>
+<p class="sub">
+Inserisci le credenziali del docente.
+</p>
 
-    <div class="field">
+<div class="field">
 
-      <label>Email</label>
+<label>Email</label>
 
-      <input
-        type="email"
-        id="loginEmail"
-        placeholder="La tua email"
-        autocomplete="username"
-      >
+<input
+type="email"
+id="loginEmail"
+placeholder="La tua email"
+autocomplete="username"
+>
 
-    </div>
+</div>
 
-    <div class="field">
+<div class="field">
 
-      <label>Password</label>
+<label>Password</label>
 
-      <input
-        type="password"
-        id="loginPassword"
-        placeholder="Password"
-        autocomplete="current-password"
-      >
+<input
+type="password"
+id="loginPassword"
+placeholder="Password"
+autocomplete="current-password"
+>
 
-    </div>
+</div>
 
-    <button
-      class="primary"
-      onclick="loginTeacher()"
-    >
-      ACCEDI
-    </button>
+<button
+class="primary"
+onclick="loginTeacher()"
+>
+ACCEDI
+</button>
 
-    <div
-      id="loginMessage"
-      class="message"
-    ></div>
+<div
+id="loginMessage"
+class="message"
+></div>
 
-  </div>
+</div>
 
 </section>
 
 
-<!-- =========================
-     AREA DOCENTE
-========================= -->
+<!-- ================= AREA DOCENTE ================= -->
 
 <section id="admin" class="hidden">
 
-  <div class="card">
+<div class="card">
 
-    <h2>👨‍🏫 Area docente</h2>
+<h2>👨‍🏫 Area docente</h2>
 
-    <div class="user-info">
+<div class="user-info">
 
-      <strong>Accesso effettuato</strong>
+<strong>Accesso effettuato</strong>
 
-      <div id="loggedUser"></div>
+<div id="loggedUser"></div>
 
-      <br>
+<br>
 
-      <button
-        class="danger"
-        onclick="logoutTeacher()"
-      >
-        ESCI
-      </button>
+<button
+class="danger"
+onclick="logoutTeacher()"
+>
+ESCI
+</button>
 
-    </div>
+</div>
 
-    <p class="sub">
-      Questa versione usa il database Supabase.
-    </p>
+<p class="sub">
+Qui puoi impostare la parola del giorno.
+</p>
 
+<div class="grid">
 
-    <div class="grid">
+<div>
 
-      <!-- PUBBLICAZIONE -->
+<div class="field">
 
-      <div>
+<label>Parola</label>
 
-        <div class="field">
+<input
+id="word"
+maxlength="11"
+placeholder="BRAVE"
+>
 
-          <label>Parola</label>
+<small class="sub">
+Da 3 a 11 lettere.
+</small>
 
-          <input
-            id="word"
-            maxlength="11"
-            placeholder="BRAVE"
-          >
+</div>
 
-          <small class="sub">
-            Da 3 a 11 lettere.
-          </small>
+<div class="field">
 
-        </div>
+<label>Lingua</label>
 
+<select id="language">
 
-        <div class="field">
+<option>English</option>
+<option>Italiano</option>
+<option>Español</option>
 
-          <label>Lingua</label>
+</select>
 
-          <select id="language">
+</div>
 
-            <option>English</option>
-            <option>Italiano</option>
-            <option>Español</option>
+<div class="field">
 
-          </select>
+<label>Definizione</label>
 
-        </div>
+<textarea id="definition"></textarea>
 
+</div>
 
-        <div class="field">
+<div class="field">
 
-          <label>Definizione</label>
+<label>Traduzione</label>
 
-          <textarea id="definition"></textarea>
+<input id="translation">
 
-        </div>
+</div>
 
+<div class="field">
 
-        <div class="field">
+<label>Frase</label>
 
-          <label>Traduzione</label>
+<textarea id="example"></textarea>
 
-          <input id="translation">
+</div>
 
-        </div>
+<button
+class="primary"
+onclick="publishWord()"
+>
+PUBBLICA
+</button>
 
+<div
+id="pub"
+class="message"
+></div>
 
-        <div class="field">
+</div>
 
-          <label>Frase</label>
 
-          <textarea id="example"></textarea>
+<div>
 
-        </div>
+<h3>Risultati di oggi</h3>
 
+<table>
 
-        <button
-          class="primary"
-          onclick="publishWord()"
-        >
-          PUBBLICA
-        </button>
+<thead>
+<tr>
+<th>Nome</th>
+<th>Tentativi</th>
+<th>Esito</th>
+</tr>
+</thead>
 
+<tbody id="results"></tbody>
 
-        <div
-          id="pub"
-          class="message"
-        ></div>
+</table>
 
-      </div>
+</div>
 
+</div>
 
-      <!-- RISULTATI -->
+<hr>
 
-      <div>
+<h3>Storico</h3>
 
-        <h3>Risultati di oggi</h3>
+<table>
 
-        <table>
+<thead>
+<tr>
+<th>Data</th>
+<th>Lingua</th>
+<th>Parola</th>
+</tr>
+</thead>
 
-          <thead>
+<tbody id="history"></tbody>
 
-            <tr>
-              <th>Nome</th>
-              <th>Tentativi</th>
-              <th>Esito</th>
-            </tr>
+</table>
 
-          </thead>
-
-          <tbody id="results"></tbody>
-
-        </table>
-
-      </div>
-
-    </div>
-
-
-    <hr>
-
-    <h3>Storico</h3>
-
-    <table>
-
-      <thead>
-
-        <tr>
-          <th>Data</th>
-          <th>Lingua</th>
-          <th>Parola</th>
-        </tr>
-
-      </thead>
-
-      <tbody id="history"></tbody>
-
-    </table>
-
-  </div>
+</div>
 
 </section>
 
 </main>
 
 
-<!-- SUPABASE -->
-
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
 
 <script>
 
-/* ==========================================
-   CONFIGURAZIONE SUPABASE
-========================================== */
+/* =====================================================
+   SUPABASE
+===================================================== */
 
 const SUPABASE_URL =
-  "https://rcqvkmnkrwnbpqbnpoyo.supabase.co";
+"https://rcqvkmnkrwnbpqbnpoyo.supabase.co";
 
 const SUPABASE_PUBLISHABLE_KEY =
-  "sb_publishable_3cCTzLbgKZi5i9D6IFVm0g_IzRt9V8M";
+"sb_publishable_3cCTzLbgKZi5i9D6IFVm0g_IzRt9V8M";
 
 const db = supabase.createClient(
-  SUPABASE_URL,
-  SUPABASE_PUBLISHABLE_KEY
+SUPABASE_URL,
+SUPABASE_PUBLISHABLE_KEY,
+{
+auth:{
+persistSession:true,
+autoRefreshToken:true,
+detectSessionInUrl:true
+}
+}
 );
 
 
-/* ==========================================
+/* =====================================================
    FUNZIONI GENERALI
-========================================== */
+===================================================== */
 
 const today = () =>
-  new Date().toISOString().slice(0,10);
-
+new Date().toISOString().slice(0,10);
 
 const E = s =>
-  String(s ?? '').replace(
-    /[&<>"']/g,
-    c => ({
-      '&':'&amp;',
-      '<':'&lt;',
-      '>':'&gt;',
-      '"':'&quot;',
-      "'":'&#39;'
-    }[c])
-  );
+String(s ?? '').replace(
+/[&<>"']/g,
+c => ({
+'&':'&amp;',
+'<':'&lt;',
+'>':'&gt;',
+'"':'&quot;',
+"'":'&#39;'
+}[c])
+);
 
 
-/* ==========================================
+/* =====================================================
    ELEMENTI
-========================================== */
+===================================================== */
 
 const studentSection =
-  document.getElementById('student');
+document.getElementById("student");
 
 const teacherLogin =
-  document.getElementById('teacherLogin');
+document.getElementById("teacherLogin");
 
 const admin =
-  document.getElementById('admin');
+document.getElementById("admin");
 
 const date =
-  document.getElementById('date');
+document.getElementById("date");
 
 const lang =
-  document.getElementById('lang');
+document.getElementById("lang");
 
 const setup =
-  document.getElementById('setup');
+document.getElementById("setup");
 
 const game =
-  document.getElementById('game');
+document.getElementById("game");
 
 const board =
-  document.getElementById('board');
+document.getElementById("board");
 
 const keys =
-  document.getElementById('keys');
+document.getElementById("keys");
 
 const msg =
-  document.getElementById('msg');
+document.getElementById("msg");
 
 const result =
-  document.getElementById('result');
+document.getElementById("result");
 
 const results =
-  document.getElementById('results');
+document.getElementById("results");
 
 const history =
-  document.getElementById('history');
+document.getElementById("history");
 
 
-/* ==========================================
-   MOSTRA GIOCO
-========================================== */
+/* =====================================================
+   GIOCO
+===================================================== */
 
 function showStudent(){
 
-  teacherLogin.classList.add('hidden');
-  admin.classList.add('hidden');
+teacherLogin.classList.add("hidden");
+admin.classList.add("hidden");
+studentSection.classList.remove("hidden");
 
-  studentSection.classList.remove('hidden');
-
-  loadStudent();
+loadStudent();
 
 }
 
 
-/* ==========================================
-   MOSTRA AREA DOCENTE
-========================================== */
+/* =====================================================
+   AREA DOCENTE
+===================================================== */
 
 async function showTeacher(){
 
-  studentSection.classList.add('hidden');
-  admin.classList.add('hidden');
+studentSection.classList.add("hidden");
+admin.classList.add("hidden");
 
-  const {
-    data: {
-      session
-    }
-  } = await db.auth.getSession();
+const {
+data:{
+session
+}
+} = await db.auth.getSession();
 
+if(session){
 
-  if(session){
+teacherLogin.classList.add("hidden");
+admin.classList.remove("hidden");
 
-    teacherLogin.classList.add('hidden');
-    admin.classList.remove('hidden');
+document.getElementById("loggedUser").textContent =
+session.user.email;
 
-    document.getElementById('loggedUser').textContent =
-      session.user.email;
+await loadAdmin();
 
-    loadAdmin();
+}else{
 
-  }else{
+teacherLogin.classList.remove("hidden");
 
-    teacherLogin.classList.remove('hidden');
-
-    document.getElementById('loginMessage').textContent = '';
-
-    document.getElementById('loginEmail').value = '';
-
-    document.getElementById('loginPassword').value = '';
-
-  }
+}
 
 }
 
 
-/* ==========================================
-   LOGIN DOCENTE
-========================================== */
+/* =====================================================
+   LOGIN
+===================================================== */
 
 async function loginTeacher(){
 
-  const email =
-    document.getElementById('loginEmail')
-      .value.trim();
+const email =
+document.getElementById("loginEmail").value.trim();
 
-  const password =
-    document.getElementById('loginPassword')
-      .value;
+const password =
+document.getElementById("loginPassword").value;
 
+const loginMessage =
+document.getElementById("loginMessage");
 
-  const loginMessage =
-    document.getElementById('loginMessage');
+loginMessage.className =
+"message";
 
+loginMessage.textContent =
+"Accesso in corso...";
 
-  loginMessage.className =
-    'message';
+if(!email || !password){
 
-  loginMessage.textContent =
-    'Accesso in corso...';
+loginMessage.className =
+"message error";
 
+loginMessage.textContent =
+"Inserisci email e password.";
 
-  if(!email || !password){
-
-    loginMessage.className =
-      'message error';
-
-    loginMessage.textContent =
-      'Inserisci email e password.';
-
-    return;
-
-  }
-
-
-  const { data, error } =
-    await db.auth.signInWithPassword({
-      email,
-      password
-    });
-
-
-  if(error){
-
-    loginMessage.className =
-      'message error';
-
-    loginMessage.textContent =
-      'Errore: ' + error.message;
-
-    console.error(error);
-
-    return;
-
-  }
-
-
-  if(data.session){
-
-    teacherLogin.classList.add('hidden');
-
-    admin.classList.remove('hidden');
-
-    document.getElementById('loggedUser').textContent =
-      data.session.user.email;
-
-    loadAdmin();
-
-  }
+return;
 
 }
 
 
-/* ==========================================
+/* LOGIN SUPABASE */
+
+const {
+data,
+error
+} =
+await db.auth.signInWithPassword({
+email:email,
+password:password
+});
+
+
+if(error){
+
+console.error(error);
+
+loginMessage.className =
+"message error";
+
+loginMessage.textContent =
+"Errore: " + error.message;
+
+return;
+
+}
+
+
+/* CONTROLLO SESSIONE REALE */
+
+const {
+data:{
+session
+}
+} = await db.auth.getSession();
+
+
+if(!session){
+
+loginMessage.className =
+"message error";
+
+loginMessage.textContent =
+"Login non completato: nessuna sessione Supabase.";
+
+return;
+
+}
+
+
+/* ACCESSO */
+
+teacherLogin.classList.add("hidden");
+
+admin.classList.remove("hidden");
+
+document.getElementById("loggedUser").textContent =
+session.user.email;
+
+await loadAdmin();
+
+}
+
+
+/* =====================================================
    LOGOUT
-========================================== */
+===================================================== */
 
 async function logoutTeacher(){
 
-  await db.auth.signOut();
+await db.auth.signOut();
 
-  admin.classList.add('hidden');
+admin.classList.add("hidden");
 
-  teacherLogin.classList.remove('hidden');
+teacherLogin.classList.remove("hidden");
 
-  document.getElementById('loginEmail').value = '';
+document.getElementById("loginPassword").value="";
 
-  document.getElementById('loginPassword').value = '';
-
-  document.getElementById('loginMessage').textContent =
-    'Sei uscito dall’Area docente.';
-
-  showStudent();
+showStudent();
 
 }
 
 
-/* ==========================================
-   PAROLA DEL GIORNO
-========================================== */
+/* =====================================================
+   PAROLA ATTUALE
+===================================================== */
 
 async function currentWord(){
 
-  const r =
-    await db
-      .from('word_of_the_day')
-      .select('*')
-      .eq('game_date', today())
-      .maybeSingle();
+const r =
+await db
+.from("word_of_the_day")
+.select("*")
+.eq("game_date",today())
+.maybeSingle();
 
+if(r.error){
 
-  if(r.error){
+console.error(r.error);
 
-    console.error(r.error);
+return null;
 
-    lang.textContent =
-      'Errore database: ' + r.error.message;
+}
 
-    return null;
-
-  }
-
-
-  return r.data;
+return r.data;
 
 }
 
 
-/* ==========================================
-   CARICAMENTO STUDENTE
-========================================== */
+/* =====================================================
+   STUDENTE
+===================================================== */
 
 async function loadStudent(){
 
-  date.textContent =
-    new Date().toLocaleDateString(
-      'it-IT',
-      {
-        weekday:'long',
-        day:'numeric',
-        month:'long'
-      }
-    );
+date.textContent =
+new Date().toLocaleDateString(
+"it-IT",
+{
+weekday:"long",
+day:"numeric",
+month:"long"
+}
+);
 
+const x =
+await currentWord();
 
-  const x =
-    await currentWord();
+if(x){
 
+lang.textContent =
+x.language;
 
-  if(x){
+setup.classList.remove("hidden");
 
-    lang.textContent =
-      x.language;
+}else{
 
-    setup.classList.remove('hidden');
+lang.textContent =
+"Nessuna parola pubblicata oggi";
 
-  }else{
+setup.innerHTML =
+"<p>Il docente non ha ancora pubblicato la parola di oggi.</p>";
 
-    lang.textContent =
-      'Nessuna parola pubblicata oggi';
-
-    setup.innerHTML =
-      '<p>Il docente non ha ancora pubblicato la parola di oggi.</p>';
-
-  }
+}
 
 }
 
 
-/* ==========================================
-   CARICAMENTO AREA DOCENTE
-========================================== */
+/* =====================================================
+   AREA DOCENTE
+===================================================== */
 
 async function loadAdmin(){
 
-  const {
-    data: {
-      session
-    }
-  } = await db.auth.getSession();
+const {
+data:{
+session
+}
+} = await db.auth.getSession();
 
+if(!session){
 
-  if(!session){
+showTeacher();
 
-    showTeacher();
-
-    return;
-
-  }
-
-
-  const x =
-    await currentWord();
-
-
-  if(x){
-
-    document.getElementById('word').value =
-      x.word || '';
-
-    document.getElementById('language').value =
-      x.language || 'English';
-
-    document.getElementById('definition').value =
-      x.definition || '';
-
-    document.getElementById('translation').value =
-      x.translation || '';
-
-    document.getElementById('example').value =
-      x.example || '';
-
-  }else{
-
-    document.getElementById('word').value = '';
-
-    document.getElementById('definition').value = '';
-
-    document.getElementById('translation').value = '';
-
-    document.getElementById('example').value = '';
-
-  }
-
-
-  /* RISULTATI */
-
-  const r =
-    await db
-      .from('results')
-      .select('*')
-      .eq('game_date', today())
-      .order('created_at');
-
-
-  if(r.error){
-
-    console.error(r.error);
-
-  }
-
-
-  results.innerHTML =
-    (r.data || [])
-      .map(x =>
-        `<tr>
-          <td>${E(x.student_name)}</td>
-          <td>${x.attempts ?? '—'}</td>
-          <td>${x.won ? '🟩' : '❌'}</td>
-        </tr>`
-      )
-      .join('');
-
-
-  /* STORICO */
-
-  const h =
-    await db
-      .from('word_of_the_day')
-      .select('*')
-      .order(
-        'game_date',
-        {ascending:false}
-      )
-      .limit(100);
-
-
-  if(h.error){
-
-    console.error(h.error);
-
-  }
-
-
-  history.innerHTML =
-    (h.data || [])
-      .map(x =>
-        `<tr>
-          <td>${x.game_date}</td>
-          <td>${E(x.language)}</td>
-          <td>${E(x.word)}</td>
-        </tr>`
-      )
-      .join('');
+return;
 
 }
 
 
-/* ==========================================
-   PUBBLICAZIONE PAROLA
-========================================== */
+/* PAROLA DI OGGI */
+
+const x =
+await currentWord();
+
+if(x){
+
+document.getElementById("word").value =
+x.word || "";
+
+document.getElementById("language").value =
+x.language || "English";
+
+document.getElementById("definition").value =
+x.definition || "";
+
+document.getElementById("translation").value =
+x.translation || "";
+
+document.getElementById("example").value =
+x.example || "";
+
+}
+
+
+/* RISULTATI */
+
+const r =
+await db
+.from("results")
+.select("*")
+.eq("game_date",today())
+.order("created_at");
+
+results.innerHTML =
+(r.data || [])
+.map(x =>
+`<tr>
+<td>${E(x.student_name)}</td>
+<td>${x.attempts ?? "—"}</td>
+<td>${x.won ? "🟩" : "❌"}</td>
+</tr>`
+)
+.join("");
+
+
+/* STORICO */
+
+const h =
+await db
+.from("word_of_the_day")
+.select("*")
+.order(
+"game_date",
+{ascending:false}
+)
+.limit(100);
+
+history.innerHTML =
+(h.data || [])
+.map(x =>
+`<tr>
+<td>${x.game_date}</td>
+<td>${E(x.language)}</td>
+<td>${E(x.word)}</td>
+</tr>`
+)
+.join("");
+
+}
+
+
+/* =====================================================
+   PUBBLICAZIONE
+===================================================== */
 
 async function publishWord(){
 
-  const pub =
-    document.getElementById('pub');
+const pub =
+document.getElementById("pub");
+
+pub.className="message";
+
+pub.textContent =
+"Controllo autenticazione...";
 
 
-  /* CONTROLLO LOGIN */
+/*
+IMPORTANTE:
+recuperiamo la sessione REALE.
+*/
 
-  const {
-    data: {
-      session
-    }
-  } = await db.auth.getSession();
-
-
-  if(!session){
-
-    pub.className =
-      'message error';
-
-    pub.textContent =
-      'Devi effettuare il login come docente.';
-
-    return;
-
-  }
+let {
+data:{
+session
+}
+} = await db.auth.getSession();
 
 
-  let w =
-    document.getElementById('word')
-      .value
-      .trim()
-      .toUpperCase();
+/*
+Se la sessione non è disponibile,
+proviamo a rinnovarla.
+*/
 
+if(!session){
 
-  const language =
-    document.getElementById('language')
-      .value;
+const refreshed =
+await db.auth.refreshSession();
 
-  const definition =
-    document.getElementById('definition')
-      .value;
-
-  const translation =
-    document.getElementById('translation')
-      .value;
-
-  const example =
-    document.getElementById('example')
-      .value;
-
-
-  /* SOLO LETTERE */
-
-  if(!/^[A-ZÀ-ÖØ-Ý]+$/i.test(w)){
-
-    pub.className =
-      'message error';
-
-    pub.textContent =
-      'La parola deve contenere solo lettere.';
-
-    return;
-
-  }
-
-
-  /* LUNGHEZZA */
-
-  if(w.length < 3 || w.length > 11){
-
-    pub.className =
-      'message error';
-
-    pub.textContent =
-      'La parola deve avere da 3 a 11 lettere.';
-
-    return;
-
-  }
-
-
-  pub.className =
-    'message';
-
-  pub.textContent =
-    'Pubblicazione in corso...';
-
-
-  /*
-     UPSERT:
-     se oggi non esiste -> INSERT
-     se oggi esiste -> UPDATE
-  */
-
-  const r =
-    await db
-      .from('word_of_the_day')
-      .upsert(
-        {
-          game_date:today(),
-          word:w,
-          language:language,
-          definition:definition,
-          translation:translation,
-          example:example
-        },
-        {
-          onConflict:'game_date'
-        }
-      );
-
-
-  if(r.error){
-
-    console.error(r.error);
-
-    pub.className =
-      'message error';
-
-    pub.textContent =
-      'Errore: ' + r.error.message;
-
-    return;
-
-  }
-
-
-  pub.className =
-    'message success';
-
-  pub.textContent =
-    '✓ Parola pubblicata online.';
-
-
-  /* AGGIORNA TUTTO */
-
-  await loadAdmin();
-
-  await loadStudent();
+session =
+refreshed.data.session;
 
 }
 
 
-/* ==========================================
-   STATO DEL GIOCO
-========================================== */
+/*
+SE NON C'È SESSIONE:
+STOP.
+*/
 
-let S = {};
+if(!session){
+
+pub.className =
+"message error";
+
+pub.textContent =
+"Errore: il docente non risulta autenticato. Esci e accedi nuovamente.";
+
+return;
+
+}
 
 
-/* ==========================================
-   INIZIO GIOCO
-========================================== */
+/*
+CONTROLLO UTENTE
+*/
+
+const {
+data:{
+user
+},
+error:userError
+} = await db.auth.getUser();
+
+if(userError || !user){
+
+pub.className =
+"message error";
+
+pub.textContent =
+"Errore: Supabase non riconosce l'utente autenticato.";
+
+console.error(userError);
+
+return;
+
+}
+
+
+/*
+DA QUI SIAMO AUTENTICATI.
+*/
+
+let w =
+document.getElementById("word")
+.value
+.trim()
+.toUpperCase();
+
+const language =
+document.getElementById("language").value;
+
+const definition =
+document.getElementById("definition").value;
+
+const translation =
+document.getElementById("translation").value;
+
+const example =
+document.getElementById("example").value;
+
+
+/* CONTROLLO PAROLA */
+
+if(!/^[A-ZÀ-ÖØ-Ý]+$/i.test(w)){
+
+pub.className =
+"message error";
+
+pub.textContent =
+"La parola deve contenere solo lettere.";
+
+return;
+
+}
+
+
+/* 3-11 LETTERE */
+
+if(w.length < 3 || w.length > 11){
+
+pub.className =
+"message error";
+
+pub.textContent =
+"La parola deve avere da 3 a 11 lettere.";
+
+return;
+
+}
+
+
+pub.textContent =
+"Salvataggio in corso...";
+
+
+/*
+PRIMA CONTROLLIAMO SE ESISTE
+GIÀ UNA PAROLA OGGI.
+*/
+
+const existing =
+await db
+.from("word_of_the_day")
+.select("id")
+.eq("game_date",today())
+.maybeSingle();
+
+
+if(existing.error){
+
+console.error(existing.error);
+
+pub.className =
+"message error";
+
+pub.textContent =
+"Errore nel controllo della parola: " +
+existing.error.message;
+
+return;
+
+}
+
+
+let save;
+
+
+/*
+SE NON ESISTE:
+INSERT
+
+SE ESISTE:
+UPDATE
+*/
+
+if(!existing.data){
+
+save =
+await db
+.from("word_of_the_day")
+.insert({
+game_date:today(),
+word:w,
+language:language,
+definition:definition,
+translation:translation,
+example:example
+});
+
+}else{
+
+save =
+await db
+.from("word_of_the_day")
+.update({
+word:w,
+language:language,
+definition:definition,
+translation:translation,
+example:example
+})
+.eq("id",existing.data.id);
+
+}
+
+
+/*
+CONTROLLO ERRORE
+*/
+
+if(save.error){
+
+console.error(save.error);
+
+pub.className =
+"message error";
+
+pub.textContent =
+"Errore: " + save.error.message;
+
+return;
+
+}
+
+
+/*
+CONTROLLO FINALE:
+LEGGIAMO DAVVERO LA PAROLA
+*/
+
+const verification =
+await db
+.from("word_of_the_day")
+.select("*")
+.eq("game_date",today())
+.maybeSingle();
+
+
+if(verification.error || !verification.data){
+
+pub.className =
+"message error";
+
+pub.textContent =
+"La pubblicazione è stata inviata ma la parola non è leggibile dal database.";
+
+console.error(
+verification.error
+);
+
+return;
+
+}
+
+
+/* SUCCESSO */
+
+pub.className =
+"message success";
+
+pub.textContent =
+"✓ Parola pubblicata online.";
+
+
+/* AGGIORNA DOCENTE */
+
+await loadAdmin();
+
+}
+
+
+/* =====================================================
+   STATO GIOCO
+===================================================== */
+
+let S={};
+
+
+/* =====================================================
+   INIZIO PARTITA
+===================================================== */
 
 async function startGame(){
 
-  const x =
-    await currentWord();
+const x =
+await currentWord();
 
+const n =
+document.getElementById("name")
+.value
+.trim();
 
-  const n =
-    document.getElementById('name')
-      .value
-      .trim();
+if(!x){
 
+alert(
+"Nessuna parola pubblicata oggi."
+);
 
-  if(!x){
+return;
 
-    alert(
-      'Nessuna parola pubblicata oggi.'
-    );
+}
 
-    return;
+if(!n){
 
-  }
+alert(
+"Inserisci il nome."
+);
 
-
-  if(!n){
-
-    alert(
-      'Inserisci il nome.'
-    );
-
-    return;
-
-  }
-
-
-  S = {
-
-    w:x.word.toUpperCase(),
-
-    n:n,
-
-    row:0,
-
-    g:'',
-
-    gs:[],
-
-    cs:[],
-
-    done:false,
-
-    x:x
-
-  };
-
-
-  setup.classList.add('hidden');
-
-  game.classList.remove('hidden');
-
-  result.innerHTML = '';
-
-  msg.textContent = '';
-
-
-  board.style.setProperty(
-    '--n',
-    S.w.length
-  );
-
-
-  board.innerHTML = '';
-
-
-  for(
-    let i=0;
-    i<6*S.w.length;
-    i++
-  ){
-
-    board.innerHTML +=
-      '<div class="tile"></div>';
-
-  }
-
-
-  keys.innerHTML = '';
-
-
-  [
-    'QWERTYUIOP',
-    'ASDFGHJKL',
-    'ZXCVBNM'
-  ].forEach(
-    (r,j)=>{
-
-      const z =
-        document.createElement('div');
-
-      z.className =
-        'keyrow';
-
-
-      [...r].forEach(
-        c=>{
-
-          const b =
-            document.createElement('button');
-
-          b.className =
-            'key';
-
-          b.textContent =
-            c;
-
-          b.onclick =
-            ()=>pressKey(c);
-
-          z.appendChild(b);
-
-        }
-      );
-
-
-      if(j===2){
-
-        ['⌫','ENTER'].forEach(
-          c=>{
-
-            const b =
-              document.createElement('button');
-
-            b.className =
-              'key wide';
-
-            b.textContent =
-              c;
-
-            b.onclick =
-              ()=>pressKey(c);
-
-            z.appendChild(b);
-
-          }
-        );
-
-      }
-
-
-      keys.appendChild(z);
-
-    }
-  );
-
-
-  drawBoard();
+return;
 
 }
 
 
-/* ==========================================
-   TASTIERA
-========================================== */
-
-function pressKey(k){
-
-  if(S.done)
-    return;
-
-
-  if(k==='⌫'){
-
-    S.g =
-      S.g.slice(0,-1);
-
-  }else if(k==='ENTER'){
-
-    guess();
-
-  }else if(
-    /^[A-Z]$/.test(k) &&
-    S.g.length<S.w.length
-  ){
-
-    S.g += k;
-
-  }
+S={
+w:x.word.toUpperCase(),
+n:n,
+row:0,
+g:"",
+gs:[],
+cs:[],
+done:false,
+x:x
+};
 
 
-  drawBoard();
+setup.classList.add("hidden");
 
-}
+game.classList.remove("hidden");
 
+result.innerHTML="";
 
-/* ==========================================
-   VALUTAZIONE
-========================================== */
+msg.textContent="";
 
-function evaluateGuess(g,w){
+board.style.setProperty(
+"--n",
+S.w.length
+);
 
-  const a =
-    Array(w.length)
-      .fill('gray');
-
-  const used = [];
+board.innerHTML="";
 
 
-  /* LETTERE NELLA POSIZIONE GIUSTA */
+for(
+let i=0;
+i<6*S.w.length;
+i++
+){
 
-  for(
-    let i=0;
-    i<w.length;
-    i++
-  ){
-
-    if(g[i]===w[i]){
-
-      a[i]='green';
-
-      used[i]=true;
-
-    }
-
-  }
-
-
-  /* LETTERE PRESENTI MA POSIZIONE SBAGLIATA */
-
-  for(
-    let i=0;
-    i<w.length;
-    i++
-  ){
-
-    if(a[i]==='green')
-      continue;
-
-
-    const j =
-      w.split('')
-        .findIndex(
-          (c,k)=>
-            c===g[i] &&
-            !used[k]
-        );
-
-
-    if(j>=0){
-
-      a[i]='yellow';
-
-      used[j]=true;
-
-    }
-
-  }
-
-
-  return a;
+board.innerHTML +=
+'<div class="tile"></div>';
 
 }
 
 
-/* ==========================================
-   TENTATIVO
-========================================== */
-
-async function guess(){
-
-  if(S.g.length!==S.w.length){
-
-    msg.textContent =
-      'Completa la parola.';
-
-    return;
-
-  }
+keys.innerHTML="";
 
 
-  const g =
-    S.g;
+[
+"QWERTYUIOP",
+"ASDFGHJKL",
+"ZXCVBNM"
+].forEach(
+(r,j)=>{
+
+const z =
+document.createElement("div");
+
+z.className="keyrow";
 
 
-  const c =
-    evaluateGuess(
-      g,
-      S.w
-    );
+[...r].forEach(
+c=>{
 
+const b =
+document.createElement("button");
 
-  S.gs.push(g);
+b.className="key";
 
-  S.cs.push(c);
+b.textContent=c;
 
-  S.row++;
+b.onclick=()=>pressKey(c);
 
-  S.g='';
-
-
-  const win =
-    g===S.w;
-
-
-  if(win || S.row===6){
-
-    S.done=true;
-
-
-    /*
-       Gli studenti possono inserire
-       il risultato senza login.
-    */
-
-    const r =
-      await db
-        .from('results')
-        .insert(
-          {
-            game_date:today(),
-            student_name:S.n,
-            attempts:win
-              ? S.row
-              : null,
-            won:win
-          }
-        );
-
-
-    if(r.error){
-
-      console.error(r.error);
-
-    }
-
-
-    result.innerHTML =
-      `
-      <h2>
-        ${
-          win
-          ? '🎉 Correct!'
-          : 'La parola era: '+E(S.w)
-        }
-      </h2>
-
-      <div class="hint">
-
-        ${E(S.x.definition || '')}
-
-        ${
-          S.x.translation
-          ? '<br>🇮🇹 '+E(S.x.translation)
-          : ''
-        }
-
-        ${
-          S.x.example
-          ? '<br><i>'+E(S.x.example)+'</i>'
-          : ''
-        }
-
-      </div>
-      `;
-
-
-    msg.textContent =
-      win
-      ? 'Ottimo lavoro!'
-      : 'Riprova domani!';
-
-  }
-
-
-  drawBoard();
+z.appendChild(b);
 
 }
-
-
-/* ==========================================
-   DISEGNA TAVOLO
-========================================== */
-
-function drawBoard(){
-
-  if(!S.w)
-    return;
-
-
-  const n =
-    S.w.length;
-
-
-  const tiles =
-    [...board.children];
-
-
-  for(
-    let i=0;
-    i<6*n;
-    i++
-  ){
-
-    const r =
-      Math.floor(i/n);
-
-    const c =
-      i%n;
-
-
-    const value =
-      r===S.row
-      ? (S.g[c] || '')
-      : (S.gs[r]?.[c] || '');
-
-
-    tiles[i].textContent =
-      value;
-
-
-    tiles[i].className =
-      'tile ' +
-      (
-        r<S.row
-        ? S.cs[r][c]
-        : ''
-      ) +
-      (
-        value
-        ? ' filled'
-        : ''
-      );
-
-  }
-
-}
-
-
-/* ==========================================
-   CONTROLLO SESSIONE SUPABASE
-========================================== */
-
-db.auth.onAuthStateChange(
-  (event, session)=>{
-
-    console.log(
-      'Auth:',
-      event,
-      session
-        ? session.user.email
-        : 'nessun utente'
-    );
-
-  }
 );
 
 
-/* ==========================================
+if(j===2){
+
+["⌫","ENTER"].forEach(
+c=>{
+
+const b =
+document.createElement("button");
+
+b.className="key wide";
+
+b.textContent=c;
+
+b.onclick=()=>pressKey(c);
+
+z.appendChild(b);
+
+}
+);
+
+}
+
+
+keys.appendChild(z);
+
+}
+);
+
+
+drawBoard();
+
+}
+
+
+/* =====================================================
+   TASTIERA
+===================================================== */
+
+function pressKey(k){
+
+if(S.done)return;
+
+if(k==="⌫"){
+
+S.g=S.g.slice(0,-1);
+
+}else if(k==="ENTER"){
+
+guess();
+
+}else if(
+/^[A-Z]$/.test(k) &&
+S.g.length<S.w.length
+){
+
+S.g+=k;
+
+}
+
+drawBoard();
+
+}
+
+
+/* =====================================================
+   VALUTAZIONE
+===================================================== */
+
+function evaluateGuess(g,w){
+
+const a=
+Array(w.length).fill("gray");
+
+const used=[];
+
+
+for(
+let i=0;
+i<w.length;
+i++
+){
+
+if(g[i]===w[i]){
+
+a[i]="green";
+used[i]=true;
+
+}
+
+}
+
+
+for(
+let i=0;
+i<w.length;
+i++
+){
+
+if(a[i]==="green")
+continue;
+
+const j=
+w.split("").findIndex(
+(c,k)=>
+c===g[i] &&
+!used[k]
+);
+
+if(j>=0){
+
+a[i]="yellow";
+used[j]=true;
+
+}
+
+}
+
+return a;
+
+}
+
+
+/* =====================================================
+   TENTATIVO
+===================================================== */
+
+async function guess(){
+
+if(S.g.length!==S.w.length){
+
+msg.textContent=
+"Completa la parola.";
+
+return;
+
+}
+
+const g=S.g;
+
+const c=
+evaluateGuess(g,S.w);
+
+S.gs.push(g);
+
+S.cs.push(c);
+
+S.row++;
+
+S.g="";
+
+const win=
+g===S.w;
+
+
+if(win || S.row===6){
+
+S.done=true;
+
+
+/*
+RISULTATO STUDENTE
+*/
+
+const r=
+await db
+.from("results")
+.insert({
+game_date:today(),
+student_name:S.n,
+attempts:win ? S.row : null,
+won:win
+});
+
+if(r.error){
+
+console.error(r.error);
+
+}
+
+
+result.innerHTML=
+`
+<h2>
+${win ? "🎉 Correct!" :
+"La parola era: "+E(S.w)}
+</h2>
+
+<div class="hint">
+
+${E(S.x.definition || "")}
+
+${S.x.translation ?
+"<br>🇮🇹 "+E(S.x.translation) : ""}
+
+${S.x.example ?
+"<br><i>"+E(S.x.example)+"</i>" : ""}
+
+</div>
+`;
+
+msg.textContent=
+win
+? "Ottimo lavoro!"
+: "Riprova domani!";
+
+}
+
+drawBoard();
+
+}
+
+
+/* =====================================================
+   DISEGNO TABELLA
+===================================================== */
+
+function drawBoard(){
+
+if(!S.w)return;
+
+const n=S.w.length;
+
+const tiles=
+[...board.children];
+
+for(
+let i=0;
+i<6*n;
+i++
+){
+
+const r=
+Math.floor(i/n);
+
+const c=
+i%n;
+
+const value=
+r===S.row
+? (S.g[c] || "")
+: (S.gs[r]?.[c] || "");
+
+tiles[i].textContent=value;
+
+tiles[i].className=
+"tile "+
+(
+r<S.row
+? S.cs[r][c]
+: ""
+)+
+(
+value
+? " filled"
+: ""
+);
+
+}
+
+}
+
+
+/* =====================================================
+   CONTROLLO SESSIONE
+===================================================== */
+
+db.auth.onAuthStateChange(
+(event,session)=>{
+
+console.log(
+"Supabase Auth:",
+event,
+session
+? session.user.email
+: "nessuna sessione"
+);
+
+}
+);
+
+
+/* =====================================================
    AVVIO
-========================================== */
+===================================================== */
 
 loadStudent();
 

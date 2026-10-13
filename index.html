@@ -1309,32 +1309,64 @@ drawBoard();
    TASTIERA
 ===================================================== */
 
+```javascript
 function pressKey(k){
 
-if(S.done)return;
+  if(S.done || !S.w) return;
 
-if(k==="⌫"){
+  if(k==="⌫"){
 
-S.g=S.g.slice(0,-1);
+    S.g=S.g.slice(0,-1);
 
-}else if(k==="ENTER"){
+  }else if(k==="ENTER"){
 
-guess();
+    guess();
 
-}else if(
-/^[A-Z]$/.test(k) &&
-S.g.length<S.w.length
-){
+  }else if(
+    /^[A-Z]$/.test(k) &&
+    S.g.length<S.w.length
+  ){
 
-S.g+=k;
+    S.g+=k;
+
+  }
+
+  drawBoard();
 
 }
 
-drawBoard();
 
-}
+// Permette di usare la tastiera fisica del computer
+document.addEventListener("keydown", function(event) {
 
+  if(S.done || !S.w) return;
 
+  // Non intercetta i tasti mentre si scrive nei campi
+  const tag = event.target.tagName;
+
+  if(tag==="INPUT" || tag==="TEXTAREA" || tag==="SELECT") return;
+
+  // Tasto Invio
+  if(event.key==="Enter") {
+    event.preventDefault();
+    guess();
+    return;
+  }
+
+  // Tasto Cancella
+  if(event.key==="Backspace") {
+    event.preventDefault();
+    pressKey("⌫");
+    return;
+  }
+
+  // Lettere dalla tastiera fisica
+  if(/^[a-zA-Z]$/.test(event.key)) {
+    pressKey(event.key.toUpperCase());
+  }
+
+});
+```
 /* =====================================================
    VALUTAZIONE
 ===================================================== */
